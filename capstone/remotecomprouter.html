@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="discription" content="Capstone">
+    <meta name="author" content="Jaz Sam">
+    <link rel="stylesheet" href="capstone.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap" rel="stylesheet">
+    <title>Second Floor Switch Scripts</title>
+    <style>
+        body{
+            background-color: rgb(155, 186, 163);
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 20;
+        }
+        .script-container{
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 120%;
+            max-width: 800px;
+            max-height: 500px;
+            border: 1px solid #000;
+            overflow-y: auto;
+            overflow-x: auto;
+        }
+        pre{
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 14px;
+            margin: 0;
+            display: inline-block
+        }
+    </style>
+</head>
+<body>
+    <h1>Remote Router Script</h1>
+    <div id="links">
+        <ul>
+            <li><a href="index.html">Main Page</a></li>
+            <li><a href="sfw1.html">Switch FW1 Script</a></li>
+            <li><a href="sfw2.html">Switch FW2 Script</a></li>
+            <li><a href="comprouter.html">Company Router Script</a></li>
+            <li><a href="remotecomprouter.html">Remote Router Script</a></li>
+        </ul>
+    </div>
+    <div class="script-container">
+        <pre>
+        version 12.2 
+        no service timestamps log datetime msec 
+        no service timestamps debug datetime msec 
+        service password-encryption 
+        ! 
+        hostname RemoteRouter 
+        ! 
+        no logging console 
+        ! 
+        ! 
+        enable secret 5 $1$mERr$hx5rVt7rPNoS4wqbXKX7m0
+        ! 
+        ! 
+        ! 
+        ! 
+        ! 
+        ! 
+        ip cef 
+        no ipv6 cef 
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        !
+        interface FastEthernet 0/0 
+            description Connection to Remote Servre 
+            ip address 192.168.1.1 255.255.255.252 
+            duplex auto 
+            speed auto 
+        ! 
+        interface FsatEthernet 1/0
+            no ip address 
+            duplex auto 
+            speed auto 
+            shutdown 
+        ! 
+        interface Serial 2/0 
+            description Connection Company Router 
+            ip address 200.200.200.2 255.255.255.252 
+        ! 
+        interface Serial 3/0 
+            no ip address 
+            clock rate 2000000
+            shutdown 
+        ! 
+        interface FastEthernet 4/0 
+            no ip address 
+            shutdown 
+        ! 
+        interface FastEthernet 5/0 
+            no ip address 
+            shutdown 
+        ! 
+        ip classless 
+        ip route 192.168.0.48 255.255.255.240 200.200.200.1 
+        ip route 192.168.0.32 255.255.255.240 200.200.200.1 
+        ip route 192.168.0.16 255.255.255.240 200.200.200.1
+        ip route 192.168.0.0 255.255.255.240 200.200.200.1  
+        ip route 192.168.0.64 255.255.255.240 200.200.200.1 
+        ! 
+        ip flow-export version 9 
+        ! 
+        ! 
+        ! 
+        no cdp run 
+        ! 
+        banner motd #Authorized Access Only!# 
+        ! 
+        ! 
+        ! 
+        ! 
+        ! 
+        logging 192.168.0.50 
+        line con 0 
+            password 7 0822455D0A16
+            login 
+        ! 
+        line aux 0 
+        ! 
+        line vty 0 4 
+            password 7 0822455D0A16 
+            login 
+        ! 
+        ! 
+        ! 
+        end 
+        </pre>
+    </div>

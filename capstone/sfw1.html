@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="discription" content="Capstone">
+    <meta name="author" content="Jaz Sam">
+    <link rel="stylesheet" href="capstone.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap" rel="stylesheet">
+    <title>First Floor Switch Scripts</title>
+    <style>
+        body{
+            background-color: rgb(155, 186, 163);
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 20;
+        }
+        .script-container{
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 120%;
+            max-width: 800px;
+            max-height: 500px;
+            border: 1px solid #000;
+            overflow-y: auto;
+            overflow-x: auto;
+        }
+        pre{
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 14px;
+            margin: 0;
+            display: inline-block
+        }
+    </style>
+</head>
+<body>
+    <h1>First Floor Switch Script</h1>
+    <div id="links">
+        <ul>
+            <li><a href="index.html">Main Page</a></li>
+            <li><a href="sfw1.html">Switch FW1 Script</a></li>
+            <li><a href="sfw2.html">Switch FW2 Script</a></li>
+            <li><a href="comprouter.html">Company Router Script</a></li>
+            <li><a href="remotecomprouter.html">Remote Router Script</a></li>
+        </ul>
+    </div>
+    <div class="script-container">
+        <pre>
+        version 12.1
+        no service timestamps log datatime msec
+        no service timestamps debug datatime msec
+        service password-encryption
+        !   
+        hostname FirstFloorSW
+        !    
+        no logging console 
+        enable secret 5 $1$mERr$hx5rVt7rPNoS4wqbXKX7m0
+        !
+        !
+        !
+        ! 
+        ! 
+        !  
+        spanning-tree mode pvst
+        spanning-tree extend system-id 
+        !
+        interface FastEthernet0/1
+            description Connection to Vlan 10 Sales PC
+            switchport access vlan 10
+            switchport mode access 
+            switchport port-security
+            switchport port-security mac-address sticky
+            switchport port-security mac-address sticky 0004.9A2A.D335
+        !
+        interface FastEthernet0/2
+            description Connection to Vlan 10 Sales PC
+            switchport access vlan 10
+            switchport mode access 
+            switchport port-security
+            switchport port-security mac-address sticky
+            switchport port-security mac-address sticky 00D0.D335.7C64
+        !
+        interface FastEthernet0/3
+            description Connection to Vlan 10 Sales PC
+            switchport access vlan 10
+            switchport mode access
+            switchport port-security
+            switchport port-security mac-address sticky 
+            switchport port-security mac-address sticky 0001.969E.633C
+        !
+        interface FastEthernet0/4
+            description Connection to Vlan 10 Sales PC
+            switchport access vlan 10
+            switchport mode access
+            switchport port-security
+            switchport port-security mac-address sticky 
+            switchport port-security mac-address sticky 0004.9A00.9156
+        !
+        interface FastEthernet0/5
+            description Connection to Vlan 10 Sales PC
+            switchport access vlan 10
+            switchport mode access
+            switchport port-security
+            switchport port-security mac-address sticky 
+            switchport port-security mac-address sticky 0002.4AC9.2204
+        !
+        interface FastEthernet0/6
+            description Connection to Vlan 10 Sales PC
+            switchport access vlan 10
+            switchport mode access
+            switchport port-security
+            switchport port-security mac-address sticky 
+            switchport port-security mac-address sticky 0050.0F82.28DD
+        !
+        interface FastEthernet0/7
+            description Connection to Domain Controller
+            switchport access vlan 40
+            switchport mode access
+            switchport port-security
+            switchport port-security mac-address sticky 
+            switchport port-security mac-address sticky 0001.644C.95AD
+        !
+        interface FastEthernet0/8
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/9
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/10
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/11
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/12
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/13
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/14
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/15
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/16
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/17
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/18
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/19
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/20
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/21
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/22
+            switchport access vlan 666
+            switchport mode access
+            shutdown
+        !
+        interface FastEthernet0/23
+            description Connection to Second Floor Switch
+        !
+        interface FastEthernet0/24
+            description Connection to Company Router
+            switchport mode trunk
+        !
+        interface Vlan1
+            no ip address
+            shutdown
+        !
+        interface Vlan50
+            ip address 192.168.0.66 255.255.255.240
+        !
+        interface Vlan666
+            no ip address
+            shutdown
+        !
+        ip default-gateway 192.168.0.65
+        !
+        no cdp run
+        !
+        banner motd #Authorized Access Only!#
+        !
+        !
+        !
+        line con 0
+            password 7 0822455D0A16
+            login
+        !
+        line vty 0 4
+            password 7 0822455D0A16
+            login
+        line vty 5 15
+         login
+        !
+        !
+        !
+        !
+        end
+        </pre>
+    </div>
+</body>

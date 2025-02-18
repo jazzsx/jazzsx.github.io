@@ -1,0 +1,45 @@
+body,html{
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    font-family: "Grechen Fuemen", serif;
+}
+
+p{
+    font-family: "Grechen Fuemen", serif;
+    font-weight: 600; 
+    font-size: larger;
+}
+
+#presfw1{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 14px;
+}
+
+#container{
+    width: 900px;
+    height: 850px;
+    border: 1px solid black;
+    margin: auto;
+    background-color: white;
+    
+}
+
+#links{
+    text-align: center;
+    li{font-family: "Grechen Fuemen", serif;
+    text-align: center;
+    list-style: none;
+    display: inline;
+    padding: 10px;
+    }
+}
+
+#imgaes{
+    padding-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
